@@ -1,7 +1,7 @@
 const path = require('path');
 const OutPutPath = path.join(__dirname, './public/');
 module.exports = {
-    entry: "./src/playground/redux-expensify.js", // read the code in app.js
+    entry: "./src/app.js", // read the code in app.js
     output: { // convert it into native react code in the public directory.
         path: OutPutPath,
         filename: 'bundle.js' // the name of the file the code gets converted in.
