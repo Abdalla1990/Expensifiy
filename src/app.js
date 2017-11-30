@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import AppRouter from './Router/AppRouter';
 import 'normalize.css/normalize.css'; // this module resets the css browser configurations to the default settings.
 import './styles/styles.scss'; // loades the styles file which we configured webpack to read in bwepack config file.
@@ -24,8 +25,10 @@ store.dispatch(addExpense({
     amount: 600000,
     createdAt: 2000
 }));
-store.dispatch(setTextFilter());
-store.dispatch(setSortByDate());
+
+
+
+//store.dispatch(setSortByDate());
 const state = store.getState();
 const visiableExpenses = getvisiableExpenses(state.expenses,state.filters);
 
@@ -33,7 +36,11 @@ console.log(visiableExpenses);
 
 
 
-   
+   const jsx = ( 
+      <Provider store = {store}> 
+         <AppRouter />
+      </Provider>
+)
 
 
-ReactDOM.render(<AppRouter />,document.getElementById('app'));
+ReactDOM.render(jsx,document.getElementById('app'));
