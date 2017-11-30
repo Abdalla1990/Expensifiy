@@ -13,8 +13,6 @@ const Header = ()=>(
 
     <NavLink   activeClassName="is-active" to="/help"> Help  </NavLink>
 
-    <NavLink   activeClassName="is-active" to="/edit"> Edit Expenses  </NavLink>
-
     <NavLink    activeClassName="is-active" to="/create"> Create Expenses  </NavLink>
 
     </header>);

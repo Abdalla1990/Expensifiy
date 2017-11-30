@@ -83,7 +83,7 @@ const getVisiableExpenses = (expenses, { text, sortBy, startDate, endDate }) => 
         // if the startDate is undefined it will result in true ,, if the created at is bigger than the start date filter it will result in true 
         const startDateMatch = typeof startDate !== 'number' || ex.createdAt >= startDate;
         const endDateMatch = typeof endDate !== 'number' || ex.createdAt <= endDate;
-        const textMatch = ex.descreption.toLowerCase().includes(text.toLowerCase());
+        const textMatch = ex.description.toLowerCase().includes(text.toLowerCase());
 
         return startDateMatch && endDateMatch && textMatch // if any of these results in true , the ex wont be returned .
     }).sort((a, b) => {
@@ -107,37 +107,37 @@ store.subscribe(() => {
 // ADD_EXPENSE
 
 // action name : addExpense the type 'ADD_EXPENSE' the values : action.expense <<(use this inside the reducer)
-const addExpense = ({ descreption = '', note = '', amount = 0, createdAt = 0 } = {}) => ({ type: 'ADD_EXPENSE', expense: { id: uuid(), descreption, note, amount, createdAt } });
+const addExpense = ({ description = '', note = '', amount = 0, createdAt = 0 } = {}) => ({ type: 'ADD_EXPENSE', expense: { id: uuid(), description, note, amount, createdAt } });
 
 // DISPATCH ACTIONS ! 
 const expense1 = store.dispatch(addExpense({
-    descreption: 'RENT',
+    description: 'RENT',
     note: 'THIS IS MY RENT FOR JULY',
     amount: 54500,
     createdAt: -3000
 }));
 const expense2 = store.dispatch(addExpense({
-    descreption: 'CAR',
+    description: 'CAR',
     note: 'THIS IS MY CAR RENT FOR JULY',
     amount: 600000,
     createdAt: 2000
 }));
 store.dispatch(addExpense({
-    descreption: 'FOOD',
+    description: 'FOOD',
     note: 'THIS IS MY FOOD COST FOR JULY',
     amount: 700000,
     createdAt: -1000
 }));
 
 store.dispatch(addExpense({
-    descreption: 'CLOTHES',
+    description: 'CLOTHES',
     note: 'THIS IS MY CLOTHES COST FOR JULY',
     amount: 700000,
     createdAt: -2000
 }));
 
 store.dispatch(addExpense({
-    descreption: 'PETROL',
+    description: 'PETROL',
     note: 'THIS IS MY PETROL COST FOR JULY',
     amount: 700000,
     createdAt: 2000
@@ -151,7 +151,7 @@ const removeExpense = ({ id } = {}) => ({ type: 'REMOVE_EXPENSE', expense: { id 
 //EDIT_EXPENSE
 const editExpense = (id, updates) => ({ type: 'EDIT_EXPENSE', id, updates })
     // const edittedOne = store.dispatch(editExpense(expense2.expense.id, {
-    //     descreption: 'modified value',
+    //     description: 'modified value',
     //     note: 'modified value',
     //     amount: 3000000,
     //     createdAt: 300000

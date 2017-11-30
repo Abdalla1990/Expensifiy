@@ -11,7 +11,7 @@ export default (state = expensesReducerDefaultState, action) => {
             return state.filter((ex) => {
                 return ex.id !== action.expense.id; // this is the only condition that will not return a value 
             });
-
+            
         case 'EDIT_EXPENSE':
             return state.map((ex) => {
                 if (ex.id === action.id) {

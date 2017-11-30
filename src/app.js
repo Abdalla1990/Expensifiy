@@ -14,21 +14,33 @@ const store = configureStore() ;
 
    
 store.dispatch(addExpense({
-    descreption: 'WATER BELL',
+    description: 'WATER BELL',
     note: 'THIS IS MY WATER BELL FOR JULY',
     amount: 54500,
     createdAt: -1000
 }));
 store.dispatch(addExpense({
-    descreption: 'GAS BELL',
+    description: 'GAS BELL',
     note: 'THIS IS MY GAS BELL FOR JULY',
     amount: 600000,
     createdAt: 2000
 }));
+store.dispatch(addExpense({
+    description: 'CAR BELL',
+    note: 'THIS IS MY CAR BELL FOR JULY',
+    amount: 40000,
+    createdAt: 3000
+}));
+store.dispatch(addExpense({
+    description: 'FOOD BELL',
+    note: 'THIS IS MY FOOD BELL FOR JULY',
+    amount: 100000,
+    createdAt: -3000
+}));
 
 
 
-//store.dispatch(setSortByDate());
+
 const state = store.getState();
 const visiableExpenses = getvisiableExpenses(state.expenses,state.filters);
 
