@@ -41,6 +41,7 @@ class ExpenseForm extends React.Component{
 
     }
 
+    
     desOnChange =  (e)=>{
 
         const des = e.target.value ; 
@@ -94,6 +95,8 @@ class ExpenseForm extends React.Component{
                 <textarea onChange= {this.noteOnChange} placeholder="note" value = {this.state.note} type="textarea"></textarea>
                
                 <button>Submit</button>
+               
+            
             
             </form>
         </div>)
